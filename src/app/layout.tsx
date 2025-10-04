@@ -1,16 +1,16 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
-
-import Header from './components/Header'
+import AuthProvider from './components/AuthProvider'
 import Footer from './components/Footer'
-import { AuthProvider } from '@/context/AuthContext'
+import Navbar from './components/Navbar'
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-poppins',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en" className={`${poppins.variable} font-sans`}>
       <body className="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
         <AuthProvider>
-          <Header />
+          <Navbar/>
           <main className="flex-grow">{children}</main>
           <Footer />
           <Toaster position="top-right" />
