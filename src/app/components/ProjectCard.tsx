@@ -1,5 +1,6 @@
 // src/components/ProjectCard.jsx
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
 
 const ProjectCard = ({ project }) => {
@@ -15,7 +16,7 @@ const ProjectCard = ({ project }) => {
     >
       {/* Image on top */}
       <div className="relative">
-        <img 
+        <Image
           src={project.image} 
           alt={project.title} 
           className="w-full h-64 object-cover"

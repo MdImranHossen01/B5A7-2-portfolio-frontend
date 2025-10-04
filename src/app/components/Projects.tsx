@@ -1,8 +1,9 @@
 // src/sections/Projects.jsx
+"use client";
 import ProjectCard from '../components/ProjectCard';
-import projImg from '../assets/musafir.png';
-import projImg1 from '../assets/Pathchakro.png';
-import projImg2 from '../assets/Homa_Room.png';
+import projImg from '../../../public/musafir.png';
+import projImg1 from '../../../public/Pathchakro.png';
+import projImg2 from '../../../public/Homa_Room.png';
 import { motion } from 'framer-motion';
 
 const projectsData = [

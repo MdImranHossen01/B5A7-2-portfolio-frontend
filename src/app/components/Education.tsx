@@ -1,10 +1,11 @@
 // src/sections/Education.jsx
+"use client";
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaBookOpen } from 'react-icons/fa';
 import { IoIosSchool } from 'react-icons/io';
 import Lottie from "lottie-react";
-import educationAnimation from '../assets/ExamPreparation.json';
+import educationAnimation from '../../../public/ExamPreparation.json';
 
 const educationData = [
   {
