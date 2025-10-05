@@ -1,7 +1,6 @@
-// src/pages/MusafirTraveller.jsx
+// src/app/project/musafir/page.tsx
 
 import React from 'react';
-
 import projectImage from '../../../../public/musafir.png';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,7 +10,13 @@ const MusafirTraveller = () => {
         <div className="container mx-auto px-4 py-16">
             <h1 className="text-4xl font-bold text-center mb-4">Musafir Traveller</h1>
             <div className="w-full max-w-4xl mx-auto mb-8">
-                 <Image src={projectImage} alt="Musafir Traveller" className="rounded-lg shadow-lg w-full" />
+                 <Image 
+                    src={projectImage} 
+                    alt="Musafir Traveller" 
+                    className="rounded-lg shadow-lg w-full"
+                    width={800}
+                    height={600}
+                 />
             </div>
 
             <div className="max-w-4xl mx-auto space-y-8">
@@ -35,8 +40,8 @@ const MusafirTraveller = () => {
                 <div>
                     <h2 className="text-2xl font-semibold mb-2">Project Links</h2>
                     <div className="flex space-x-4">
-                         <Link href="https://marvelous-gaufre-bd3a39.netlify.app" target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-secondary">Live Project</Link>
-                         <Link href="https://github.com/MdImranHossen01/A12-Musafir-Traveller" target="_blank" rel="noopener noreferrer" className="btn btn-outline">GitHub Repository (Client)</Link>
+                         <a href="https://marvelous-gaufre-bd3a39.netlify.app" target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-secondary">Live Project</a>
+                         <a href="https://github.com/MdImranHossen01/A12-Musafir-Traveller" target="_blank" rel="noopener noreferrer" className="btn btn-outline">GitHub Repository (Client)</a>
                     </div>
                 </div>
 

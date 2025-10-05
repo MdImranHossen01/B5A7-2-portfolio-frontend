@@ -1,16 +1,22 @@
-// src/pages/HomaRoom.jsx
+// src/app/project/homa-room/page.tsx
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import projectImage from '../../../../public/Homa_Room.png';
+import Link from 'next/link';
 import Image from 'next/image';
+import projectImage from '../../../../public/Homa_Room.png';
 
 const HomaRoom = () => {
     return (
         <div className="container mx-auto px-4 py-16">
             <h1 className="text-4xl font-bold text-center mb-4">Homa Room Finder</h1>
             <div className="w-full max-w-4xl mx-auto mb-8">
-                 <Image src={projectImage} alt="Homa Room Finder" className="rounded-lg shadow-lg w-full" />
+                 <Image 
+                    src={projectImage} 
+                    alt="Homa Room Finder" 
+                    className="rounded-lg shadow-lg w-full"
+                    width={800}
+                    height={600}
+                 />
             </div>
 
             <div className="max-w-4xl mx-auto space-y-8">
@@ -54,7 +60,7 @@ const HomaRoom = () => {
                 </div>
 
                  <div className="text-center mt-12">
-                     <Link to="/#projects" className="btn btn-primary">Back to All Projects</Link>
+                     <Link href="/#projects" className="btn btn-primary">Back to All Projects</Link>
                  </div>
             </div>
         </div>
