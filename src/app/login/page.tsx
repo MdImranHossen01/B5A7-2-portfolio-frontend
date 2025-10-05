@@ -30,9 +30,10 @@ export default function Login() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16">
+   <section>
+     <div className="container mx-auto px-4 py-16">
       <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md card-shadow">
-        <h1 className="text-3xl font-bold mb-6 text-center primary-text">Login</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Login</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
@@ -40,8 +41,9 @@ export default function Login() {
             </label>
             <input
               type="email"
+              placeholder='Your Email'
               id="email"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -54,15 +56,16 @@ export default function Login() {
             <input
               type="password"
               id="password"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-3 py-2 border border-gray-300 text-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder='Your Password'
             />
           </div>
           <button
             type="submit"
-            className="w-full btn-primary"
+            className="w-full btn bg-green-800 py-2 rounded-xl"
             disabled={loading}
           >
             {loading ? 'Logging in...' : 'Login'}
@@ -70,5 +73,6 @@ export default function Login() {
         </form>
       </div>
     </div>
+   </section>
   );
 }

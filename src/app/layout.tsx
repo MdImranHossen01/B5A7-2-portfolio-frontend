@@ -27,9 +27,9 @@ export default function RootLayout({
     <html lang="en" className={`${poppins.variable} font-sans`}>
       <body className="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
         <AuthProvider>
-          <Navbar/>
+          
           <main className="flex-grow">{children}</main>
-          <Footer />
+          
           <Toaster position="top-right" />
         </AuthProvider>
       </body>
