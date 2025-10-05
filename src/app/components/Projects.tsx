@@ -11,7 +11,7 @@ const projectsData = [
   {
     title: 'Musafir Traveller',
     description: "Musafir is a comprehensive travel booking platform built with React, Node.js, and MongoDB. It features hotel and room booking functionality with search filters, user authentication, booking management, and admin dashboard. The app includes secure payment processing with Stripe API, responsive design with Tailwind CSS, and real-time data management with MongoDB.",
-    image: projImg,
+    image: projImg.src, // FIX: Use .src to get the string URL
     liveLink: 'https://marvelous-gaufre-bd3a39.netlify.app',
     repoLink: 'https://github.com/MdImranHossen01/A12-Musafir-Traveller',
     techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe API', 'Firebase Auth', 'Tailwind CSS'],
@@ -21,7 +21,7 @@ const projectsData = [
   {
     title: 'Pathchakro',
     description: "Pathchakro is a dynamic, full-stack collaborative study platform built with MongoDB, Express.js, React, and Node.js. The system allows users to manage assignments, while the core feature is a peer-to-peer grading system where students can review and mark each other's work. It includes secure JWT Bearer Token authentication, a rich text editor for detailed descriptions, and an integrated book borrowing system.",
-    image: projImg1,
+    image: projImg1.src, // FIX: Use .src to get the string URL
     liveLink: 'https://pathchakro-a6827.web.app',
     repoLink: 'https://github.com/MdImranHossen01/A11-Pathchakro.git',
     techStack: ['React', 'Node.js', 'MongoDB', 'Stripe API'],
@@ -31,7 +31,7 @@ const projectsData = [
   {
     title: 'Homa Room',
     description: "Homa Room is a full-stack web app built with React & Firebase that helps users find compatible roommates through location-based filtering, budget matching, and real-time chat. It includes Firebase Auth (Google/email login), Firestore database for profile storage, and a responsive UI with Tailwind CSS. The app simplifies roommate searches with instant messaging and smart filters, ensuring seamless connections.",
-    image: projImg2,
+    image: projImg2.src, // FIX: Use .src to get the string URL
     liveLink: 'https://roommate-finder-5c556.web.app',
     repoLink: 'https://github.com/MdImranHossen01/A10-Roomate-Finder',
     techStack: ['React', 'Firebase', 'Tailwind CSS'],
