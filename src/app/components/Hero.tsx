@@ -1,7 +1,7 @@
 // src/sections/Hero.jsx
 "use client";
 import myImage from "../../../public/Md-Imran-Hossen-profile.png";
-import { FaGithub, FaLinkedin, FaWhatsapp, FaDownload } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaDownload } from "react-icons/fa"; 
 import { FaSquareUpwork } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -140,7 +140,7 @@ const Hero = () => {
                 className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 text-2xl"
                 whileHover={{ y: -3 }}
               >
-                <FaSquareUpwork />
+                <FaSquareUpwork/>
               </motion.a>
             </div>
           </motion.div>
@@ -159,9 +159,7 @@ const Hero = () => {
                 <Image
                   src={myImage}
                   alt="Md Imran Hossen"
-                  width={384}
-                  height={384}
-                  className="rounded-full object-cover w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96"
+                  className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover"
                 />
               </div>
               <div className="absolute inset-0 rounded-full shadow-lg shadow-cyan-500/30 animate-pulse"></div>

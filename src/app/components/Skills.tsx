@@ -68,7 +68,7 @@ const Skills = () => {
             Technical Expertise
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Technologies I've mastered to build modern, scalable applications
+            Technologies I have mastered to build modern, scalable applications
           </p>
         </motion.div>
 

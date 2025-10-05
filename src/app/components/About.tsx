@@ -47,10 +47,10 @@ const About = () => {
           >
             <div className="space-y-6 text-justify">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a passionate web developer from Bangladesh, learning and building with the MERN stack since January 2025. I focus on creating responsive, user-friendly interfaces with React and developing efficient backends using Node.js and Express. My goal is to deliver seamless full-stack applications that combine creativity with technical precision.
+                I am a passionate web developer from Bangladesh, learning and building with the MERN stack since January 2025. I focus on creating responsive, user-friendly interfaces with React and developing efficient backends using Node.js and Express. My goal is to deliver seamless full-stack applications that combine creativity with technical precision.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Outside of coding, I'm an avid football and cricket player. The teamwork, discipline, and persistence I've learned from sports directly shape my approach to development—driving me to improve daily, solve problems efficiently, and collaborate effectively.
+                Outside of coding, I am an avid football and cricket player. The teamwork, discipline, and persistence I have learned from sports directly shape my approach to development—driving me to improve daily, solve problems efficiently, and collaborate effectively.
               </p>
             </div>
 
