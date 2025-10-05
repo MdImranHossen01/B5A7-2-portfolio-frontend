@@ -8,6 +8,7 @@ import remarkGfm from 'remark-gfm';
 import { FaCalendarAlt, FaTag, FaArrowLeft, FaClock } from 'react-icons/fa';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { Element, Text } from 'react-markdown';
 
 interface Blog {
   _id: string;
@@ -19,17 +20,25 @@ interface Blog {
   publishedAt: string;
 }
 
+// Define a type for the props of custom components
+type MarkdownComponentProps = {
+  children?: React.ReactNode;
+  href?: string;
+  className?: string;
+};
+
 // Custom components for Markdown rendering
 const components = {
-  code({ node, inline, className, children, ...props }: any) {
+  code({ className, children, ...props }: MarkdownComponentProps & { inline?: boolean }) {
     const match = /language-(\w+)/.exec(className || '');
-    return !inline && match ? (
+    const isInline = props.inline;
+    
+    return !isInline && match ? (
       <SyntaxHighlighter
         style={vscDarkPlus}
         language={match[1]}
         PreTag="div"
         className="rounded-md overflow-x-auto"
-        {...props}
       >
         {String(children).replace(/\n$/, '')}
       </SyntaxHighlighter>
@@ -39,14 +48,14 @@ const components = {
       </code>
     );
   },
-  h1: ({ children }: any) => <h1 className="text-3xl font-bold text-white mt-8 mb-4">{children}</h1>,
-  h2: ({ children }: any) => <h2 className="text-2xl font-bold text-white mt-6 mb-3">{children}</h2>,
-  h3: ({ children }: any) => <h3 className="text-xl font-bold text-white mt-4 mb-2">{children}</h3>,
-  p: ({ children }: any) => <p className="text-gray-300 mb-4 leading-relaxed">{children}</p>,
-  a: ({ href, children }: any) => <a href={href} className="text-cyan-400 hover:text-cyan-300 underline" target="_blank" rel="noopener noreferrer">{children}</a>,
-  ul: ({ children }: any) => <ul className="list-disc list-inside text-gray-300 mb-4 space-y-1">{children}</ul>,
-  ol: ({ children }: any) => <ol className="list-decimal list-inside text-gray-300 mb-4 space-y-1">{children}</ol>,
-  blockquote: ({ children }: any) => <blockquote className="border-l-4 border-cyan-500 pl-4 italic text-gray-400 my-4">{children}</blockquote>,
+  h1: ({ children }: MarkdownComponentProps) => <h1 className="text-3xl font-bold text-white mt-8 mb-4">{children}</h1>,
+  h2: ({ children }: MarkdownComponentProps) => <h2 className="text-2xl font-bold text-white mt-6 mb-3">{children}</h2>,
+  h3: ({ children }: MarkdownComponentProps) => <h3 className="text-xl font-bold text-white mt-4 mb-2">{children}</h3>,
+  p: ({ children }: MarkdownComponentProps) => <p className="text-gray-300 mb-4 leading-relaxed">{children}</p>,
+  a: ({ href, children }: MarkdownComponentProps) => <a href={href} className="text-cyan-400 hover:text-cyan-300 underline" target="_blank" rel="noopener noreferrer">{children}</a>,
+  ul: ({ children }: MarkdownComponentProps) => <ul className="list-disc list-inside text-gray-300 mb-4 space-y-1">{children}</ul>,
+  ol: ({ children }: MarkdownComponentProps) => <ol className="list-decimal list-inside text-gray-300 mb-4 space-y-1">{children}</ol>,
+  blockquote: ({ children }: MarkdownComponentProps) => <blockquote className="border-l-4 border-cyan-500 pl-4 italic text-gray-400 my-4">{children}</blockquote>,
 };
 
 export default function BlogPost() {
