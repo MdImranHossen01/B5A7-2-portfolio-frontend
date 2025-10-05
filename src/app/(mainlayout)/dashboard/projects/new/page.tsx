@@ -3,6 +3,8 @@
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
+import { motion } from 'framer-motion';
+import { FaSave, FaArrowLeft, FaGithub, FaExternalLinkAlt, FaImage } from 'react-icons/fa';
 
 export default function NewProject() {
   const [title, setTitle] = useState('');
@@ -54,117 +56,176 @@ export default function NewProject() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-8">Create New Project</h1>
-      
-      <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md card-shadow">
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="title" className="block text-gray-700 font-medium mb-2">
-              Title
-            </label>
-            <input
-              type="text"
-              id="title"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
+    <section className="py-20 bg-gray-800 text-white min-h-screen">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <div className="flex items-center mb-8">
+            <motion.button
+              type="button"
+              onClick={() => router.back()}
+              className="mr-4 p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaArrowLeft />
+            </motion.button>
+            <motion.h1 
+              className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Create New Project
+            </motion.h1>
           </div>
           
-          <div className="mb-4">
-            <label htmlFor="description" className="block text-gray-700 font-medium mb-2">
-              Description
-            </label>
-            <textarea
-              id="description"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              rows={4}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-          </div>
-          
-          <div className="mb-4">
-            <label htmlFor="image" className="block text-gray-700 font-medium mb-2">
-              Image URL
-            </label>
-            <input
-              type="text"
-              id="image"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              required
-            />
-          </div>
-          
-          <div className="mb-4">
-            <label htmlFor="githubUrl" className="block text-gray-700 font-medium mb-2">
-              GitHub URL
-            </label>
-            <input
-              type="text"
-              id="githubUrl"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              value={githubUrl}
-              onChange={(e) => setGithubUrl(e.target.value)}
-              required
-            />
-          </div>
-          
-          <div className="mb-4">
-            <label htmlFor="liveUrl" className="block text-gray-700 font-medium mb-2">
-              Live URL
-            </label>
-            <input
-              type="text"
-              id="liveUrl"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              value={liveUrl}
-              onChange={(e) => setLiveUrl(e.target.value)}
-              required
-            />
-          </div>
-          
-          <div className="mb-4">
-            <label htmlFor="technologies" className="block text-gray-700 font-medium mb-2">
-              Technologies (comma separated)
-            </label>
-            <input
-              type="text"
-              id="technologies"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              value={technologies}
-              onChange={(e) => setTechnologies(e.target.value)}
-              placeholder="e.g. React, Node.js, MongoDB"
-              required
-            />
-          </div>
-          
-          <div className="mb-6">
-            <label className="flex items-center">
-              <input
-                type="checkbox"
-                className="mr-2"
-                checked={featured}
-                onChange={(e) => setFeatured(e.target.checked)}
-              />
-              <span className="text-gray-700">Featured Project</span>
-            </label>
-          </div>
-          
-          <button
-            type="submit"
-            className="btn-primary"
-            disabled={loading}
+          {/* Form */}
+          <motion.form 
+            onSubmit={handleSubmit} 
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {loading ? 'Creating...' : 'Create Project'}
-          </button>
-        </form>
+            <div className="bg-gray-900/50 p-8 rounded-lg border border-gray-700 space-y-6">
+              {/* Title */}
+              <div>
+                <label htmlFor="title" className="block text-gray-300 font-medium mb-2">
+                  Project Title
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  required
+                />
+              </div>
+              
+              {/* Description */}
+              <div>
+                <label htmlFor="description" className="block text-gray-300 font-medium mb-2">
+                  Description
+                </label>
+                <textarea
+                  id="description"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white"
+                  rows={4}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  required
+                />
+              </div>
+              
+              {/* Image URL */}
+              <div>
+                <label htmlFor="image" className="block text-gray-300 font-medium mb-2">
+                  <FaImage className="inline mr-2" />
+                  Image URL
+                </label>
+                <input
+                  type="text"
+                  id="image"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white"
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
+                  required
+                />
+              </div>
+              
+              {/* URLs */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="githubUrl" className="block text-gray-300 font-medium mb-2">
+                    <FaGithub className="inline mr-2" />
+                    GitHub URL
+                  </label>
+                  <input
+                    type="text"
+                    id="githubUrl"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white"
+                    value={githubUrl}
+                    onChange={(e) => setGithubUrl(e.target.value)}
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="liveUrl" className="block text-gray-300 font-medium mb-2">
+                    <FaExternalLinkAlt className="inline mr-2" />
+                    Live URL
+                  </label>
+                  <input
+                    type="text"
+                    id="liveUrl"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white"
+                    value={liveUrl}
+                    onChange={(e) => setLiveUrl(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+              
+              {/* Technologies */}
+              <div>
+                <label htmlFor="technologies" className="block text-gray-300 font-medium mb-2">
+                  Technologies (comma separated)
+                </label>
+                <input
+                  type="text"
+                  id="technologies"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white"
+                  value={technologies}
+                  onChange={(e) => setTechnologies(e.target.value)}
+                  placeholder="e.g. React, Node.js, MongoDB"
+                  required
+                />
+              </div>
+              
+              {/* Featured Checkbox */}
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="featured"
+                  className="mr-3 h-5 w-5 rounded border-gray-700 bg-gray-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0"
+                  checked={featured}
+                  onChange={(e) => setFeatured(e.target.checked)}
+                />
+                <label htmlFor="featured" className="text-gray-300 font-medium">
+                  Feature this project on the homepage
+                </label>
+              </div>
+            </div>
+            
+            {/* Buttons */}
+            <div className="flex justify-end space-x-4">
+              <motion.button
+                type="button"
+                onClick={() => router.back()}
+                className="px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Cancel
+              </motion.button>
+              <motion.button
+                type="submit"
+                className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-md hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 flex items-center"
+                disabled={loading}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaSave className="mr-2" />
+                {loading ? 'Creating...' : 'Create Project'}
+              </motion.button>
+            </div>
+          </motion.form>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
