@@ -23,41 +23,45 @@ export default function NewBlog() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
+const handleSubmit = async (e: FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          title,
-          excerpt,
-          slug,
-          content,
-          tags: tags.split(',').map(tag => tag.trim()),
-        }),
-      });
+  try {
+    const token = localStorage.getItem('token');
+    console.log('Token from localStorage:', token); // DEBUG LOG 1
 
-      if (response.ok) {
-        toast.success('Blog created successfully');
-        router.push('/dashboard');
-      } else {
-        const data = await response.json();
-        toast.error(data.message || 'Failed to create blog');
-      }
-    } catch (error) {
-      console.error('Error creating blog:', error);
-      toast.error('Failed to create blog');
-    } finally {
-      setLoading(false);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        title,
+        excerpt,
+        slug,
+        content,
+        tags: tags.split(',').map(tag => tag.trim()),
+      }),
+    });
+
+    if (response.ok) {
+      toast.success('Blog created successfully');
+      router.push('/dashboard');
+    } else {
+      // THIS IS THE NEW, IMPORTANT PART
+      const errorData = await response.json();
+      console.error('Error Response from Server:', errorData); // DEBUG LOG 2
+      toast.error(errorData.message || `Failed to create blog (${response.status})`);
     }
-  };
+  } catch (error) {
+    console.error('Network/Fetch Error:', error); // DEBUG LOG 3
+    toast.error('Failed to create blog');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section className="py-20 bg-gray-800 text-white min-h-screen">
