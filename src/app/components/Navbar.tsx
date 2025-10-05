@@ -9,12 +9,9 @@ const Navbar = () => {
   const navLinks = [
     { title: 'Home', path: '/' },
     { title: 'About', path: '/about' },
-    { title: 'Skills', path: '#skills' },
     { title: 'Projects', path: '/projects' },
-    { title: 'Education', path: '#education' },
     // Removed extra quotes from the path here
     { title: 'Blogs', path: '/blogs' }, 
-    { title: 'Contact', path: '#contact' },
   ];
 
   return (

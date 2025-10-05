@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 
 const MenuLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
         <Navbar/>
-      <div>{children}</div>
+      <div className="flex-grow">{children}</div>
       <Footer/>
     </div>
   );
