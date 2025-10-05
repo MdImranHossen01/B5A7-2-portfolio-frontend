@@ -8,7 +8,6 @@ import remarkGfm from 'remark-gfm';
 import { FaCalendarAlt, FaTag, FaArrowLeft, FaClock } from 'react-icons/fa';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { Element, Text } from 'react-markdown';
 
 interface Blog {
   _id: string;
