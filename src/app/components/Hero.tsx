@@ -1,13 +1,15 @@
 // src/sections/Hero.jsx
 "use client";
+
+import Image from "next/image";
 import myImage from "../../../public/Md-Imran-Hossen-profile.png";
-import { FaGithub, FaLinkedin, FaWhatsapp, FaDownload } from "react-icons/fa"; 
+import { FaGithub, FaLinkedin, FaWhatsapp, FaDownload } from "react-icons/fa";
 import { FaSquareUpwork } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import Image from "next/image";
 
 const Hero = () => {
+  // Animation variants for container and items
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -37,14 +39,14 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden"
     >
-      {/* Animated background elements */}
+      {/* Background gradient animation */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-cyan-500/10 filter blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-blue-500/10 filter blur-3xl animate-pulse"></div>
       </div>
 
       <div className="container mx-auto flex flex-col lg:flex-row items-center px-4 sm:px-6 lg:px-8 relative z-10 py-12">
-        {/* Left Side: Text Content */}
+        {/* ---------- Left Side: Text Content ---------- */}
         <motion.div
           className="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0"
           initial="hidden"
@@ -84,14 +86,16 @@ const Hero = () => {
             className="mt-6 text-lg text-gray-300 max-w-lg mx-auto lg:mx-0"
             variants={itemVariants}
           >
-            I craft high-performance web applications with cutting-edge
-            technologies and pixel-perfect designs.
+            I build high-performance and scalable web applications using
+            cutting-edge technologies, ensuring exceptional user experience and
+            pixel-perfect design.
           </motion.p>
 
           <motion.div
             className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start items-center"
             variants={itemVariants}
           >
+            {/* Resume Download */}
             <a
               href="/dev-imran-resume.pdf"
               download="dev-imran-resume.pdf"
@@ -101,6 +105,7 @@ const Hero = () => {
               Download Resume
             </a>
 
+            {/* WhatsApp Contact */}
             <motion.a
               href="https://wa.me/8801919011101"
               target="_blank"
@@ -114,7 +119,8 @@ const Hero = () => {
               Contact Me
             </motion.a>
 
-            <div className="flex gap-4">
+            {/* Social Icons */}
+            <div className="flex gap-4 mt-4 lg:mt-0">
               <motion.a
                 href="https://github.com/MdImranHossen01"
                 target="_blank"
@@ -134,24 +140,24 @@ const Hero = () => {
                 <FaLinkedin />
               </motion.a>
               <motion.a
-                href="https://www.upwork.com/freelancers/mdimranhossen" // Replace with your Upwork profile link
+                href="https://www.upwork.com/freelancers/mdimranhossen"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 text-2xl"
                 whileHover={{ y: -3 }}
               >
-                <FaSquareUpwork/>
+                <FaSquareUpwork />
               </motion.a>
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Right Side: Image - Improved Responsiveness */}
+        {/* ---------- Right Side: Image Section ---------- */}
         <motion.div
           className="lg:w-1/2 flex justify-center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
           <div className="relative">
             <div className="relative rounded-full p-1 bg-gradient-to-r from-cyan-400 to-blue-500">
@@ -159,7 +165,10 @@ const Hero = () => {
                 <Image
                   src={myImage}
                   alt="Md Imran Hossen"
-                  className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover"
+                  width={400}
+                  height={400}
+                  priority
+                  className="object-cover rounded-full"
                 />
               </div>
               <div className="absolute inset-0 rounded-full shadow-lg shadow-cyan-500/30 animate-pulse"></div>
