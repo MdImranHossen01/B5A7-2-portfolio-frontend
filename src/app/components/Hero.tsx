@@ -1,16 +1,15 @@
-// src/sections/Hero.jsx
 "use client";
 
 import Image from "next/image";
 import myImage from "../../../public/Md-Imran-Hossen-profile.png";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaDownload } from "react-icons/fa";
 import { FaSquareUpwork } from "react-icons/fa6";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
-  // Animation variants for container and items
-  const containerVariants = {
+  // ✅ Type-safe animation variants
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -21,13 +20,13 @@ const Hero = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 10,
       },
