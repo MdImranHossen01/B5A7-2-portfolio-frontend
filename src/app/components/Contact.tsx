@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
@@ -23,10 +22,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_s0xbdhx",
-        "template_iwhkvfp",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         form.current,
-        "EE6saf3Fn1bDUun_g"
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
       .then(
         (result) => {
@@ -155,8 +154,10 @@ const Contact = () => {
                 <div>
                   <h4 className="font-medium text-gray-300">Address</h4>
                   <p className="text-gray-300">
-                    Nabokalosh, Matlabgonj (3640)<br />
-                    Matlab, Chandpur<br />
+                    Nabokalosh, Matlabgonj (3640)
+                    <br />
+                    Matlab, Chandpur
+                    <br />
                     Bangladesh
                   </p>
                 </div>
@@ -169,10 +170,17 @@ const Contact = () => {
             <h3 className="text-2xl font-bold mb-6 text-cyan-400">
               Send Me a Message
             </h3>
-            <form ref={form} onSubmit={sendEmail} className="flex flex-col flex-grow">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="flex flex-col flex-grow"
+            >
               {/* Name Input */}
               <div className="mb-6">
-                <label htmlFor="name" className="block text-gray-300 mb-2 font-medium">
+                <label
+                  htmlFor="name"
+                  className="block text-gray-300 mb-2 font-medium"
+                >
                   Your Name
                 </label>
                 <input
@@ -189,7 +197,10 @@ const Contact = () => {
 
               {/* Email Input */}
               <div className="mb-6">
-                <label htmlFor="email" className="block text-gray-300 mb-2 font-medium">
+                <label
+                  htmlFor="email"
+                  className="block text-gray-300 mb-2 font-medium"
+                >
                   Your Email
                 </label>
                 <input
@@ -206,7 +217,10 @@ const Contact = () => {
 
               {/* Message */}
               <div className="mb-6 flex-grow flex flex-col">
-                <label htmlFor="message" className="block text-gray-300 mb-2 font-medium">
+                <label
+                  htmlFor="message"
+                  className="block text-gray-300 mb-2 font-medium"
+                >
                   Your Message
                 </label>
                 <textarea

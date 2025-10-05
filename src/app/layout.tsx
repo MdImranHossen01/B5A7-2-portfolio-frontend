@@ -14,8 +14,8 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Personal portfolio website',
+  title: 'Md Imran Hossen | Best Web Application Developer in Bangladesh',
+  description: 'Meet Md Imran Hossen — a passionate web application developer from Bangladesh who builds fast, secure, and user-friendly web apps to elevate your digital presence.',
 }
 
 export default function RootLayout({
