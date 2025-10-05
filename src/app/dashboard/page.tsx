@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
+import toast from 'react-hot-toast'; // Changed from react-toastify to react-hot-toast
 
 interface Blog {
   _id: string;
